@@ -50,7 +50,7 @@ Edit
   ```bash
   ansible-galaxy collection install amazon.aws
 
-📝 How It Works
+**📝 How It Works**
 
 Step 1: Create FSx File System
 Automatically fetches default VPC & subnet
@@ -74,7 +74,7 @@ Manual command (or automate via SSH):
 sudo mkdir /fsx
 sudo mount -t nfs <SVM DNS>:/vol1 /fsx
 
-🚀 Running the Project
+**🚀 Running the Project**
 ansible-playbook createfsx.yaml
 Verify in the AWS Console under FSx → File systems.
 

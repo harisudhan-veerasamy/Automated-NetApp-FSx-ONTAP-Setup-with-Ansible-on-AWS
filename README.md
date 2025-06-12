@@ -25,6 +25,7 @@ This project automates:
 ---
 
 ## 📂 File Structure
+
 fsx-ontap-ansible/
 │
 ├── createfsx.yaml # Ansible playbook for end-to-end automation
@@ -33,6 +34,9 @@ fsx-ontap-ansible/
 ├── screenshots/ # Optional visuals
 └── README.md
 
+yaml
+Copy
+Edit
 
 ---
 
@@ -45,48 +49,53 @@ fsx-ontap-ansible/
 - ✅ Ansible AWS Collection:
   ```bash
   ansible-galaxy collection install amazon.aws
+📝 How It Works
+Step 1: Create FSx File System
+Automatically fetches default VPC & subnet
 
-**📝 How It Works**
-**Step 1**: Create FSx File System
--Automatically fetches default VPC & subnet
+Creates security group with NFS & SMB rules
 
--Creates security group with NFS & SMB rules
+Provisions FSx with SSD storage and ONTAP configuration
 
--Provisions FSx with SSD storage and ONTAP configuration
-
-**Step 2**: Create SVM
+Step 2: Create SVM
 Configures storage virtual machine on FSx
 
 Security style: UNIX
 
-**Step 3**: Create Volume
+Step 3: Create Volume
 Creates ONTAP volume (vol1) with NFS export
 
 Enables snapshot policy and storage efficiency
 
-**Step 4**: Mount Volume to EC2
+Step 4: Mount Volume to EC2
 Manual command (or automate via SSH):
 
+bash
+Copy
+Edit
 sudo mkdir /fsx
 sudo mount -t nfs <SVM DNS>:/vol1 /fsx
-
-
-**🚀 Running the Project**
-
+🚀 Running the Project
+bash
+Copy
+Edit
 ansible-playbook createfsx.yaml
 Verify in the AWS Console under FSx → File systems.
 
 🖥️ EC2 Mount Example
-1.Launch a Linux EC2 instance in the same VPC
+Launch a Linux EC2 instance in the same VPC
 
-2.SSH into the instance and run:
+SSH into the instance and run:
+
+bash
+Copy
+Edit
 sudo apt update && sudo apt install -y nfs-common
 sudo mkdir /fsx
 sudo mount -t nfs <SVM-DNS>:/vol1 /fsx
+Test by creating a file in /fsx and confirming it's accessible from other instances.
 
-3.Test by creating a file in /fsx and confirming it's accessible from other instances.
-
-✅ **Outcome**
+✅ Outcome
 🔁 Fully automated storage provisioning workflow
 
 🔒 Secure setup with IAM roles & SGs
@@ -95,10 +104,8 @@ sudo mount -t nfs <SVM-DNS>:/vol1 /fsx
 
 🧠 Reinforced practical DevOps skills in automation, cloud storage, and networking
 
-🙏** Special Thanks****
+🙏 Special Thanks
 Huge thanks to Camille Naulet and the NetApp HR Team for the interview opportunity. This project reflects my passion for cloud automation, hybrid storage, and innovative engineering.
 
-📬** Connect**
+📬 Connect
 If you’re working in the Cloud, DevOps, or Storage space — I’d love to connect!
-
-

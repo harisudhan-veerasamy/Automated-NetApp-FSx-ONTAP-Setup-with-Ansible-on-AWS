@@ -49,7 +49,9 @@ Edit
 - ✅ Ansible AWS Collection:
   ```bash
   ansible-galaxy collection install amazon.aws
+
 📝 How It Works
+
 Step 1: Create FSx File System
 Automatically fetches default VPC & subnet
 
@@ -69,43 +71,33 @@ Enables snapshot policy and storage efficiency
 
 Step 4: Mount Volume to EC2
 Manual command (or automate via SSH):
-
-bash
-Copy
-Edit
 sudo mkdir /fsx
 sudo mount -t nfs <SVM DNS>:/vol1 /fsx
+
 🚀 Running the Project
-bash
-Copy
-Edit
 ansible-playbook createfsx.yaml
 Verify in the AWS Console under FSx → File systems.
 
 🖥️ EC2 Mount Example
-Launch a Linux EC2 instance in the same VPC
 
-SSH into the instance and run:
+1.)Launch a Linux EC2 instance in the same VPC
 
-bash
-Copy
-Edit
+2.)SSH into the instance and run:
+
 sudo apt update && sudo apt install -y nfs-common
 sudo mkdir /fsx
 sudo mount -t nfs <SVM-DNS>:/vol1 /fsx
-Test by creating a file in /fsx and confirming it's accessible from other instances.
 
-✅ Outcome
-🔁 Fully automated storage provisioning workflow
+3.)Test by creating a file in /fsx and confirming it's accessible from other instances.
 
-🔒 Secure setup with IAM roles & SGs
+**✅ Outcome**
+-Fully automated storage provisioning workflow
+-Secure setup with IAM roles & SGs
+-Real-world readiness for hybrid storage environments
+-Reinforced practical DevOps skills in automation, cloud storage, and networking
 
-📈 Real-world readiness for hybrid storage environments
-
-🧠 Reinforced practical DevOps skills in automation, cloud storage, and networking
-
-🙏 Special Thanks
+🙏 **Special Thanks**
 Huge thanks to Camille Naulet and the NetApp HR Team for the interview opportunity. This project reflects my passion for cloud automation, hybrid storage, and innovative engineering.
 
-📬 Connect
+**📬 Connect**
 If you’re working in the Cloud, DevOps, or Storage space — I’d love to connect!
